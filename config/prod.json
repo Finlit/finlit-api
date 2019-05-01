@@ -1,0 +1,45 @@
+{
+    "db": {
+        "database": "finlit_db",
+        "host": "mongodb://34.214.234.243:27017/finlit_db"
+    },
+    "auth": {
+        "secret": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
+        "tokenPeriod": "1440h"
+    },
+    "webServer": {
+        "url": "http://demo.com",
+        "adminEmail": "admin@demo.com",
+        "baseUrl": "http://demo.com",
+        "port": "3009"
+    },
+    "logger": {
+        "console": {
+            "level": "silly",
+            "handleExceptions": true,
+            "json": false,
+            "colorize": true
+        }
+    },
+    "providers": {
+        "cloudinary": {
+            "apiKey": "713915523318189",
+            "name": "couponcloud",
+            "secret": "DEIPiuZsj9xR02lSNHYNWgDWOxw"
+        },
+        "fcm": {
+            "serverKey": "AAAA89Fa468:APA91bHJuaJ8EGKMem3YKHIUte2d_8B4-UR4oNsTg4pUihsxkmlSecHvg-PCkqllhbqXJHyEqQuNcC6ff-edV_C2BGCqMM8BaKbgRl6JYKVBUmOo7aQDYf29gWuxA-kbeJX6PHutXvfT",
+            "url": "https://fcm.googleapis.com/fcm/send"
+        },
+        "aws": {
+            "key": "AKIAJCO6M6ZTGENKYHDQ",
+            "secret": "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",
+            "bucket": "fitnab"
+        },
+        "mailgun": {
+            "api_key": "key-4de363e1e6239880077c531ff7e2955b",
+            "domain": "vannteqfarm.com",
+            "from": "hr@vannteqfarm.com"
+        }
+    }
+}

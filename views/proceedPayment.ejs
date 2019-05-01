@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="../content/bootstrap.min.css" rel="stylesheet" media="all" />
+    <link href="../content/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <title></title>
+    <style type="text/css">
+        body {
+            overflow: hidden;
+        }
+        
+        .spinner div {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: -20px;
+            top: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            animation: move 4s infinite cubic-bezier(.2, .64, .81, .23);
+        }
+        
+        .spinner div:nth-child(2) {
+            animation-delay: 150ms;
+        }
+        
+        .spinner div:nth-child(3) {
+            animation-delay: 300ms;
+        }
+        
+        .spinner div:nth-child(4) {
+            animation-delay: 450ms;
+        }
+        
+        @keyframes move {
+            0% {
+                left: 0%;
+            }
+            75% {
+                left: 100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form style="display:none" id="paymentForm" action="<%= data.payConfig.url %>" method="post" name="paymentForm">
+
+        <input type="hidden" name="key" value="<%= data.payConfig.key %>" />
+        <input type="hidden" name="hash" value="<%= data.hash %>" />
+        <input type="hidden" name="txnid" value="<%= data.code %>" />
+
+        <input type="text" name="surl" value="<%= data.payConfig.returnUrls.onSuccess %>" />
+        <input type="text" name="curl" value="<%= data.payConfig.returnUrls.onCancel %>" />
+        <input type="text" name="furl" value="<%= data.payConfig.returnUrls.onFailure %>" />
+        <input type="text" name="productinfo" value="<%= data.payConfig.productInfo %>" />
+        <!-- <input type="text" name="service_provider"  value="payu_paisa"/> -->
+
+        <input type="text" name="firstname" value="<%= data.firstName %>" />
+        <input type="text" name="amount" value="<%= data.amount %>" />
+        <input type="text" name="email" value="<%= data.email %>" />
+
+        <input type="text" name="udf1" value="<%= data.udf1 %>" />
+        <input type="text" name="udf2" value="<%= data.udf2 %>" />
+        <input type="text" name="udf3" value="<%= data.udf3 %>" />
+        <input type="text" name="udf4" value="<%= data.udf4 %>" />
+        <input type="text" name="udf5" value="<%= data.udf5 %>" />
+        <input type="submit" style="display: none" value="submit">
+
+    </form>
+    <div class="col-sm-12" style="padding-top: 10%">
+        <div clas="col-sm-12">
+            <h2 class="text-center">Proceed to Payment gateway</h2>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+      window.onload = function(){
+         document.forms['paymentForm'].submit()
+       }
+</script>
+</body>
+
+</html>

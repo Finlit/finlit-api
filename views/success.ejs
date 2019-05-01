@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Heritage Monuments of India</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="../content/bootstrap.min.css" rel="stylesheet" media="all"/>
+    <link href="../content/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../content/payment/styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="pf-checkout-container pf-success-page">
+    <h1 class="pf-green">Payment Successful</h1>
+    <p class="pf-processed-msg">Your payment has been processed! Details of the transaction are included below:</p>
+    <div class="pf-total-col">
+        <span class="pf-total-paid">Amount Paid</span>
+        <div class="pf-total-wrapper">
+            <span class="pf-total-label">Total:</span>
+            <span class="pf-total-amount pf-green" id="pf-total-amount"> Rs. <%= data.amount%></span>
+        </div>
+    </div>
+    <div class="pf-success-details">
+        <p>Thank you for your purchase.</p>
+        <div class="pf-success-info">
+            <ul>
+                <li>
+                    <span class="pf-value-name">Name:</span>
+                    <span id="pf-full-name" class="pf-value"><%= data.firstname %></span>
+                </li>
+                <li>
+                    <span class="pf-value-name">Transaction Code:</span>
+                    <span id="pf-auth-code" class="pf-value"> <%= data.txnid%> </span>
+                </li>
+                <li>
+                    <span class="pf-value-name">Email-ID:</span>
+                    <span id="pf-auth-code" class="pf-value"> <%= data.email%> </span>
+                </li>
+                <li>
+                    <span class="pf-value-name">Download Ticket:</span>
+                    <span id="pf-auth-code" class="pf-value"> <a href="/api/v4/payments/<%=data.txnid %>.pdf"><i class="fa fa-download fa-1x"></i> click here </a> to download</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pf-image">
+        <img class="pf-companylogo"  style="float: left; width: 250px;" src="../images/pdf/images/MIC.png"/>
+        <img class="pf-companylogo"  style="float: left; width: 301px; height: 61px; margin-left: 23px;" src="../images/pdf/images/ASIlogo.jpg"/>
+        <img class="pf-companylogo"  style="float: left; width: 289px; margin-left: 10px;" src="../images/form/canara_bank.png"/>
+    </div>
+    <div class="pf-payment-buttons">
+        <a href="/" class="btn btn-danger">Back to Home</a>
+    </div>
+
+    <div class="pf-footer">
+        <p>Powered by</p>
+        <a href="https://www.payumoney.com/">
+            <img src="../images/form/payulogo.png" width="100px" />
+        </a>
+    </div>
+</div>
+</body>
+</html>
